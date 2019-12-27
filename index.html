@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <title>Kulba</title>
 </head>
-<body>
-    <h1>Hello World</h1>
+<body onload="updateNow()">
+    <header>
+      <div class="head-container">
+        <img class="logo" src="Assets/FullSplitLogo.svg">
+        <nav>
+          <ul>
+            <li><a href="#">home</a></li>
+            <li><a href="#">portfolio</a></li>
+            <li><a href="#">contact</a></li>
+            <li><a href="#">trading</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="info">
+        <p class="time" id="time">  :  </p>
+        <p class="date" id="date"></p>
+        <p class="temp" id="temp"><img class="weather" id="weather" src="Assets/Sun.svg"> 68°F</p>
+      </div>
+      <div class="todo">
+
+
+      </div>
+      <div class="search">
+
+
+      </div>
+
+    </div>
 </body>
 </html>
