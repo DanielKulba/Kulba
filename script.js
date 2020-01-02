@@ -1,13 +1,14 @@
-function updateNow(){
+function updateNow(){ //updates the time and date
     var now = new Date(),
     hour = now.getHours(),
     minute = now.getMinutes();
     if(minute < 10)
         minute = "0" + minute;
-    if(hour > 12)
+    if(hour >= 12)
     {
-        hour -= 12;
         minute += " PM";
+        if(hour > 12)
+            hour -= 12;
     }
     else
         minute += " AM";
@@ -33,4 +34,24 @@ function updateNow(){
 }
 
 
+function updateLocation(){
+    navigator.geolocation.getCurrentPosition(tempAndIcon);
+}
+
+function tempAndIcon(pos){
+    var request = new XMLHttpRequest();
+    request.open("GET", `http://api.openweathermap.org/data/2.5/weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&APPID=2ee08325cae35c28e394ac303bae06be`, true);
+    request.onload = function(){
+        var data = JSON.parse(this.response);
+        var fahr = (data.main.temp-273.15)*9/5+32;
+        document.getElementById("temp").innerHTML = Math.round(fahr);
+    }
+    request.send();
+}
+
+
+function startup(){
+    updateLocation();
+    updateNow();
+}
 setInterval(updateNow, 1000);
