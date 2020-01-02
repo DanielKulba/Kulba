@@ -55,3 +55,5 @@ function startup(){
     updateNow();
 }
 setInterval(updateNow, 1000);
+setInterval(updateLocation, 600000);
+
